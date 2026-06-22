@@ -5,13 +5,13 @@ Built for the **CEO Factory Full Stack Developer** assignment.
 
 ---
 
-## Submission Links (fill before submitting)
+## Submission Links
 
 | Item | URL |
 |------|-----|
-| **Live Frontend** | `https://your-app.vercel.app` |
-| **Live Backend API** | `https://your-api.onrender.com` |
-| **GitHub Repository** | `https://github.com/your-username/crm-opportunity-tracker` |
+| **Live Frontend** | https://crm-tracker-ruddy.vercel.app |
+| **Live Backend API** | https://crm-tracker-b006.onrender.com |
+| **GitHub Repository** | https://github.com/Shyam2119/CRM_Tracker |
 
 ### Test Credentials (for evaluator)
 
@@ -20,7 +20,7 @@ Email:    demo@example.com
 Password: Demo@1234
 ```
 
-> Register this account on your deployed app before submitting, or use any account you create.
+> Register this account at https://crm-tracker-ruddy.vercel.app/register before submitting.
 
 ---
 
