@@ -8,6 +8,7 @@ const app = express();
 
 const allowedOrigins = [
   process.env.CLIENT_URL,
+  'https://crm-tracker-ruddy.vercel.app',
   'http://localhost:5173',
   'http://localhost:5174',
   'http://localhost:3000',
@@ -19,6 +20,7 @@ app.use(
       if (
         !origin ||
         allowedOrigins.includes(origin) ||
+        /^https:\/\/[\w-]+\.vercel\.app$/.test(origin) ||
         (process.env.NODE_ENV !== 'production' && /^http:\/\/localhost:\d+$/.test(origin))
       ) {
         callback(null, true);
