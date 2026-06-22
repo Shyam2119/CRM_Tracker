@@ -31,6 +31,18 @@ app.use(
 );
 app.use(express.json());
 
+app.get('/', (req, res) => {
+  res.json({
+    name: 'CRM Opportunity Tracker API',
+    status: 'running',
+    health: '/api/health',
+    endpoints: {
+      auth: '/api/auth',
+      opportunities: '/api/opportunities',
+    },
+  });
+});
+
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', message: 'CRM Opportunity Tracker API is running' });
 });
