@@ -22,7 +22,7 @@ export default function Login() {
     } catch (err) {
       const msg = err.response?.data?.message;
       if (msg) setError(msg);
-      else if (!err.response) setError('Cannot reach the server. Make sure the backend is running on port 5000.');
+      else if (!err.response) setError('Cannot reach the server. Please try again in a moment.');
       else setError('Login failed. Please try again.');
     } finally {
       setLoading(false);
