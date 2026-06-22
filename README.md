@@ -176,17 +176,24 @@ git push -u origin main
 
 ### Step 3 — Deploy Backend (Render)
 
+**Option A — Node runtime (recommended)**
+
 1. [render.com](https://render.com) → New Web Service → connect GitHub repo
-2. **Root Directory:** `backend`
-3. **Build Command:** `npm install`
-4. **Start Command:** `npm start`
-5. **Environment Variables:**
+2. **Runtime:** Node (not Docker)
+3. **Root Directory:** `backend`
+4. **Build Command:** `npm install`
+5. **Start Command:** `npm start`
+6. **Environment Variables:**
    - `MONGODB_URI` = your Atlas URI
    - `JWT_SECRET` = long random string
    - `JWT_EXPIRES_IN` = `2h`
    - `CLIENT_URL` = your Vercel frontend URL (set after step 4)
    - `NODE_ENV` = `production`
-6. Deploy → copy URL (e.g. `https://crm-api.onrender.com`)
+7. Deploy → copy URL (e.g. `https://crm-api.onrender.com`)
+
+**Option B — Docker runtime**
+
+If you use **Docker** on Render, leave **Root Directory** empty (repo root). The root `Dockerfile` builds the backend automatically. Set the same environment variables as above.
 
 ### Step 4 — Deploy Frontend (Vercel)
 
