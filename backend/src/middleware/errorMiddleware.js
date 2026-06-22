@@ -1,7 +1,13 @@
 import { logger } from '../utils/logger.js';
 
 export const errorHandler = (err, req, res, next) => {
-  logger.error(err.message, { stack: err.stack, path: req.originalUrl });
+  const statusCode = err.statusCode || 500;
+
+  if (statusCode >= 500) {
+    logger.error(err.message, { stack: err.stack, path: req.originalUrl });
+  } else if (statusCode === 404) {
+    logger.warn(err.message, { path: req.originalUrl });
+  }
 
   if (err.name === 'ValidationError') {
     const messages = Object.values(err.errors).map((e) => e.message);
@@ -17,7 +23,6 @@ export const errorHandler = (err, req, res, next) => {
     return res.status(400).json({ message: 'Invalid resource ID' });
   }
 
-  const statusCode = err.statusCode || 500;
   res.status(statusCode).json({
     message: err.message || 'Internal server error',
   });
