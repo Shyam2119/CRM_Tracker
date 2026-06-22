@@ -1,13 +1,17 @@
 import axios from 'axios';
 
 const resolveApiUrl = () => {
-  if (import.meta.env.VITE_API_URL) {
-    return import.meta.env.VITE_API_URL;
+  let url =
+    import.meta.env.VITE_API_URL ||
+    (import.meta.env.PROD
+      ? 'https://crm-tracker-b006.onrender.com/api'
+      : 'http://localhost:5000/api');
+
+  url = url.replace(/\/$/, '');
+  if (!url.endsWith('/api')) {
+    url = `${url}/api`;
   }
-  if (import.meta.env.PROD) {
-    return 'https://crm-tracker-b006.onrender.com/api';
-  }
-  return 'http://localhost:5000/api';
+  return url;
 };
 
 const api = axios.create({
